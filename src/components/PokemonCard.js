@@ -34,7 +34,7 @@ e.preventDefault()
           <div className="extra content">
             <span>
               <i className="icon heartbeat red" />
-              {this.props.pokemon.stats[5].value} hp
+              {this.props.pokemon.stats.find(stat => stat.name === "hp").value} hp
             </span>
           </div>
         </div>

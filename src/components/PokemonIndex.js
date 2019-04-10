@@ -6,9 +6,13 @@ import _ from 'lodash'
 
 class PokemonPage extends React.Component {
 
-  state= {
-    searchTerm: ""
+  constructor(props) {
+    super(props)
+    this.state= {
+      searchTerm: ""
+    }
   }
+
 
   handleSearch = (e, { value }) => {
     this.setState({ searchTerm: value })
@@ -20,11 +24,11 @@ class PokemonPage extends React.Component {
       <div>
         <h1>Pokemon Searcher</h1>
         <br />
-        <Search onSearchChange={_.debounce(this.handleSearch)} value={this.state.searchTerm} showNoResults={false} />
+        <Search onSearchChange={_.debounce(this.handleSearch, 500)} value={this.state.searchTerm} showNoResults={false} />
         <br />
         <PokemonCollection searchTerm={this.state.searchTerm} />
         <br />
-        <PokemonForm />
+
       </div>
     )
   }
